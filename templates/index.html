@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Link to the external style.css file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>File Upload</title>
+</head>
+<body style="align-content: center">
+<div class="container">
+    <div class="upload">
+        <!-- Form to upload files -->
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="upload-file">
+                <input id="file-upload" type="file" name="files[]" required>
+                <input id="file-upload-2" type="file" name="files[]" required>
+            </div>
+            <div class="submit">
+                <button class="hover-button" type="submit">Upload</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="blue-line col-md-12"></div>
+    <!-- Show images if file_paths is available -->
+    {% if file_test_paths %}
+        <div style=" display: flex;justify-content: center;padding: 1%;">
+            Hình ảnh so sánh 2 thời điểm
+        </div>
+        <div class="images-container">
+            {% for file in file_test_paths %}
+                <!-- Generate the correct URL for each file using url_for -->
+                <img src="{{ url_for('static', filename=file) }}" alt="Uploaded Image">
+{#                <div class="mt-2">{{ file }}</div> <!-- Hiển thị tên ảnh -->#}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if file_pred_paths %}
+        <div style=" display: flex;justify-content: center;padding: 1%;">
+            Mặt nạ thay đổi 2 thời điểm
+        </div>
+        <div class="images-container">
+            {% for file in file_pred_paths %}
+                <!-- Generate the correct URL for each file using url_for -->
+                <img src="{{ url_for('static', filename=file) }}" alt="Uploaded Image">
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>

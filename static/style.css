@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    /*align-content: center;*/
+    width: 60%;
+    border: 10px solid #141a46;
+    /*#7a7acb;*/
+    background: #EC8B5E;
+            /*#b39825;*/
+    height: 75vh;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 0;
+    margin-top: 2%;
+}
+
+input[type="file"] {
+     /*border-radius: 15px;*/
+    /*margin-bottom: 10%;*/
+    /*margin-top: 5%;*/
+    /*display: none;*/
+}
+
+/*.custom-file-input {*/
+/*    background-color: #aaaaaa; !* Màu nền *!*/
+/*    color: white; !* Màu chữ *!*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    cursor: pointer;*/
+/*    width: 250px; !* Chiều rộng tùy chỉnh *!*/
+/*}*/
+
+/*.custom-file-input::-webkit-file-upload-button {*/
+/*    !*background-color: #888888; !* Nền của nút tải tệp trên trình duyệt WebKit (Chrome, Safari) *!*!*/
+/*    !*color: white;*!*/
+/*    !*padding: 10px;*!*/
+/*    !*border: none;*!*/
+/*    cursor: pointer;*/
+/*    border-radius: 5px;*/
+/*    color: white;*/
+/*    background: #177199;*/
+/*}*/
+
+/*.custom-file-input:hover {*/
+/*    background-color: #888888; !* Màu nền khi hover *!*/
+/*}*/
+
+/*.custom-file-input:active {*/
+/*    background-color: #666666; !* Màu nền khi nhấn *!*/
+/*}*/
+
+
+.images-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.images-container img {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+button {
+    height: 40px;
+    width: 120px;
+    background-color: #40adea;
+    color: white;
+    border-radius: 5px;
+}
+
+.hover-button:hover {
+    /* Màu nền khi hover */
+    background: #0d5c81;
+}
+
+.upload-file {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+}
+
+.blue-line {
+    margin-top: 2%;
+    border: 6px solid #141a46;
+}
