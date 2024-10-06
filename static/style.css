@@ -8,8 +8,8 @@ body {
     border: 10px solid #141a46;
     /*#7a7acb;*/
     background: #EC8B5E;
-            /*#b39825;*/
-    height: 75vh;
+    /*#b39825;*/
+    height: 78vh;
     justify-content: center; /* Căn giữa theo chiều ngang */
     align-items: center; /* Căn giữa theo chiều dọc */
     padding: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 input[type="file"] {
-     /*border-radius: 15px;*/
+    /*border-radius: 15px;*/
     /*margin-bottom: 10%;*/
     /*margin-top: 5%;*/
     /*display: none;*/
@@ -51,13 +51,6 @@ input[type="file"] {
 /*    background-color: #666666; !* Màu nền khi nhấn *!*/
 /*}*/
 
-
-.images-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
 
 .images-container img {
     margin: 10px;
@@ -96,4 +89,25 @@ button {
 .blue-line {
     margin-top: 2%;
     border: 6px solid #141a46;
+}
+
+.images-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.zoom-image {
+    width: 300px; /* Kích thước mặc định */
+    height: auto;
+    transition: transform 0.3s ease; /* Hiệu ứng zoom mượt mà */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Khi hover vào một ảnh trong .images-container, tất cả ảnh sẽ được zoom */
+.images-container:hover .zoom-image {
+    transform: scale(2); /* Zoom ảnh lên 1.5 lần */
 }

@@ -7,7 +7,56 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Link to the external style.css file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>File Upload</title>
+    <title>Semantic Change Detection</title>
+
+{#    <style>#}
+{#    .images-container {#}
+{#        display: flex;#}
+{#        justify-content: center;#}
+{#        flex-wrap: wrap;#}
+{#        gap: 10px;#}
+{#    }#}
+{##}
+{#    .zoom-image {#}
+{#        width: 300px;#}
+{#        height: auto;#}
+{#        cursor: pointer;#}
+{#        transition: transform 0.3s ease;#}
+{#        border: 1px solid #ccc;#}
+{#        border-radius: 5px;#}
+{#    }#}
+{#</style>#}
+{#<script>#}
+{#    function openImage(src) {#}
+{#        // Tạo một div modal để hiển thị ảnh ở chế độ full screen#}
+{#        const modal = document.createElement('div');#}
+{#        modal.style.position = 'fixed';#}
+{#        modal.style.top = '0';#}
+{#        modal.style.left = '0';#}
+{#        modal.style.width = '100%';#}
+{#        modal.style.height = '100%';#}
+{#        modal.style.backgroundColor = 'rgba(0,0,0,0.8)';#}
+{#        modal.style.display = 'flex';#}
+{#        modal.style.justifyContent = 'center';#}
+{#        modal.style.alignItems = 'center';#}
+{#        modal.style.zIndex = '1000';#}
+{#        modal.onclick = function() {#}
+{#            document.body.removeChild(modal); // Đóng modal khi click vào#}
+{#        };#}
+{##}
+{#        // Tạo ảnh lớn#}
+{#        const img = document.createElement('img');#}
+{#        img.src = src;#}
+{#        img.style.maxWidth = '90%';#}
+{#        img.style.maxHeight = '90%';#}
+{#        img.style.borderRadius = '10px';#}
+{#        img.style.boxShadow = '0px 0px 15px rgba(255, 255, 255, 0.5)';#}
+{##}
+{#        modal.appendChild(img);#}
+{#        document.body.appendChild(modal);#}
+{#    }#}
+{#</script>#}
+
 </head>
 <body style="align-content: center">
 <div class="container">
@@ -33,22 +82,22 @@
         <div class="images-container">
             {% for file in file_test_paths %}
                 <!-- Generate the correct URL for each file using url_for -->
-                <img src="{{ url_for('static', filename=file) }}" alt="Uploaded Image">
+                <img class="zoom-image" src="{{ url_for('static', filename=file) }}" alt="Uploaded Image">
 {#                <div class="mt-2">{{ file }}</div> <!-- Hiển thị tên ảnh -->#}
             {% endfor %}
         </div>
     {% endif %}
-    {% if file_pred_paths %}
-        <div style=" display: flex;justify-content: center;padding: 1%;">
-            Mặt nạ thay đổi 2 thời điểm
-        </div>
-        <div class="images-container">
-            {% for file in file_pred_paths %}
-                <!-- Generate the correct URL for each file using url_for -->
-                <img src="{{ url_for('static', filename=file) }}" alt="Uploaded Image">
-            {% endfor %}
-        </div>
-    {% endif %}
+{% if file_pred_paths %}
+    <div style=" display: flex;justify-content: center;padding: 1%;">
+        Mặt nạ thay đổi 2 thời điểm
+    </div>
+    <div class="images-container">
+        {% for file in file_pred_paths %}
+            <!-- Generate the correct URL for each file using url_for -->
+            <img class="zoom-image" src="{{ url_for('static', filename=file) }}" alt="Uploaded Image" onclick="openImage(this.src)">
+        {% endfor %}
+    </div>
+{% endif %}
 </div>
 </body>
 </html>
